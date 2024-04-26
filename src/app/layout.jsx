@@ -1,12 +1,14 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Utilities/Navbar";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Hii Wibbu",
-  description: "Anime list",
+  title: "Anime list",
+  description: "kumpulan list anime, cari anime di sini",
 };
 
 export default function RootLayout({ children }) {
