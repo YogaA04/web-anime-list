@@ -74,7 +74,7 @@ const SlideShow = ({ api }) => {
                 {api.data?.map((anime) => {
                     return (
                         <Link href={`/anime/${anime.mal_id}`} className="click relative p-1" key={anime.mal_id}>
-                            <Image src={anime.images.webp.image_url} alt="..." width={350} height={350} className="w-full md:max-h-[470px] max-h-[170px] object-cover rounded" />
+                            <Image src={anime.images.webp.image_url} alt="..." width={350} height={350} className="w-full 2xl:h-[500px] md:h-[300px] h-[170px] object-cover rounded" />
                             <div className="absolute top-1 px-1 bg-gray-200/50 rounded-br rounded-tl backdrop-blur-sm">
                                 <p className="font-semibold md:text-md text-[12px]">Eps: {anime.episodes}</p>
                             </div>
