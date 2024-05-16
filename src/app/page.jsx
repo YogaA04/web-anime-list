@@ -1,16 +1,25 @@
-import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
-import { getAnimeResponse } from "./libs/api_lips";
+import { getAnimeResponse, getNestedAnimeResponse } from "../libs/api_lips";
+import SlideShow from "@/components/AnimeList/slideShow";
 
 const Page = async () => {
 
-  const topAnime = await getAnimeResponse("top/anime", "limit=7")
+  const topAnime = await getAnimeResponse("top/anime", "limit=12")
+  let recommendadAnime = await getNestedAnimeResponse("recommendations/anime", "entry")
+  recommendadAnime = { data: recommendadAnime.slice(0, 12) }
 
   return (
-    <div className="p-4">
-      <Header link={'/populer'} linkTitile={'Lihat semua'} title={'Paling populer'} />
-      <AnimeList api={topAnime} />
-    </div>
+    <>
+      <section className="p-4">
+        <Header link={'/populer'} linkTitile={'Lihat semua'} title={'Paling populer'} />
+        <SlideShow api={topAnime} />
+      </section>
+
+      <section className="p-4">
+        <Header link={'/rekomendasi'} linkTitile={'Lihat semua'} title={'Rekomendasi'} />
+        <SlideShow api={recommendadAnime} />
+      </section>
+    </>
   );
 }
 
