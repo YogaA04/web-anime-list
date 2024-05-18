@@ -5,26 +5,31 @@ import HeaderMenu from "@/components/Utilities/HeaderMenu"
 import Pagination from "@/components/Utilities/Pagination"
 import { useEffect, useState } from "react"
 import { getAnimeResponse } from "@/libs/api_lips"
+import { useRouter } from "next/navigation"
 
-const Page = () => {
+const Page = ({params}) => {
+    const route = useRouter()
+    const pageDestination = parseInt(params.page)
 
-    const [page, setPage] = useState(1)
+    
+    const [page, setPage] = useState(pageDestination)
     const [topAnime, setTopAnime] = useState([])
-
+    
     const fetchData = async() => {
-        const data = await getAnimeResponse("top/anime", `page=${page}`)
+        const data = await getAnimeResponse("top/anime", `page=${pageDestination}`)
         setTopAnime(data)
     }
-
+    
     useEffect(() => {
+        route.push(`/populer/${page}`)
         fetchData()
-    }, [page])
+    }, [page, route])
 
     return (
         <div className="p-4">
             <HeaderMenu title={`ANIME TERPOPULER #${page}`}/>
             <AnimeList api={topAnime} />
-            <Pagination page={page} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage}/>
+            <Pagination page={pageDestination} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage}/>
         </div>
     )
 }

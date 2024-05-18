@@ -7,6 +7,7 @@ const Page = async ({ params: { id } }) => {
     return (
         <div className="p-2">
             <div className="w-full flex md:flex-row flex-col gap-2 justifi-center">
+                <Image src={anime.data.images.webp.large_image_url} width={300} height={300} className="md:w-[80%] w-full rounded object-cover" />
                 <div className="w-full bg-white p-4 rounded">
                     <h1 className="font-bold pb-3 text-xl">{anime.data.title}</h1>
                     <div className=" w-full">
@@ -25,7 +26,6 @@ const Page = async ({ params: { id } }) => {
                     <p className="text-sm pt-1 font-semibold">Season: {anime.data.season}</p>
                     <p className="text-sm p-2 indent-8">{anime.data.synopsis}</p>
                 </div>
-                <Image src={anime.data.images.webp.large_image_url} width={300} height={300} className="md:w-[80%] w-full rounded object-cover" />
             </div>
         </div>
     )
