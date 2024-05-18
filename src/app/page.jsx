@@ -5,8 +5,8 @@ import SlideShow from "@/components/AnimeList/slideShow";
 const Page = async () => {
 
   const topAnime = await getAnimeResponse("top/anime", "limit=12")
-  let recommendadAnime = await getNestedAnimeResponse("recommendations/anime", "entry")
-  recommendadAnime = await reproduce(recommendadAnime, 12)
+  const recommendadAnime = await getNestedAnimeResponse("recommendations/anime", "entry")
+  const recomended = reproduce(recommendadAnime, 12)
 
   return (
     <>
@@ -17,7 +17,7 @@ const Page = async () => {
 
       <section className="p-4">
         <Header link={'/rekomendasi'} linkTitile={'Lihat semua'} title={'Rekomendasi'} />
-        <SlideShow api={recommendadAnime} />
+        <SlideShow api={recomended} />
       </section>
     </>
   );
