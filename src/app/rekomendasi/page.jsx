@@ -3,7 +3,7 @@
 import AnimeList from "@/components/AnimeList"
 import HeaderMenu from "@/components/Utilities/HeaderMenu"
 import { useEffect, useState } from "react"
-import { getNestedAnimeResponse } from "@/libs/api_lips"
+import { getNestedAnimeResponse } from "@/libs/api_libs"
 
 const Page = () => {
     const [rekomendasiAnime, setRekomendasiAnime] = useState([])

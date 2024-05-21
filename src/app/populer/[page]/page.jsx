@@ -4,7 +4,7 @@ import AnimeList from "@/components/AnimeList"
 import HeaderMenu from "@/components/Utilities/HeaderMenu"
 import Pagination from "@/components/Utilities/Pagination"
 import { useEffect, useState } from "react"
-import { getAnimeResponse } from "@/libs/api_lips"
+import { getAnimeResponse } from "@/libs/api_libs"
 import { useRouter } from "next/navigation"
 
 const Page = ({params}) => {
